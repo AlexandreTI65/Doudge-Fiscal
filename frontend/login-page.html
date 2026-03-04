@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Classificação Fiscal</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 36, 50, 0.65);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .glass-card {
+      width: min(360px, 90vw);
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 3rem 2.5rem 2.75rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(14px);
+    }
+
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    .title {
+      font-size: 2rem;
+      letter-spacing: 0.2rem;
+      color: #f8fafc;
+      margin-bottom: 1.75rem;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .glass-input {
+      width: 100%;
+      padding: 0.95rem 3.25rem 0.95rem 1rem;
+      border-radius: 14px;
+      border: none;
+      background: rgba(255, 255, 255, 0.22);
+      color: #f8fafc;
+      font-size: 1rem;
+      transition: transform 0.3s ease, border 0.3s ease, background 0.3s ease;
+      letter-spacing: 0.03em;
+    }
+
+    .glass-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .glass-input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .icon-circle {
+      position: absolute;
+      top: 50%;
+      right: 0.85rem;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      display: grid;
+      place-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .glass-input:focus + .icon-circle,
+    .glass-input:hover + .icon-circle {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .icon-circle svg {
+      width: 18px;
+      height: 18px;
+      fill: #0f172a;
+    }
+
+    .btn-login {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 0.85rem;
+      border-radius: 16px;
+      border: none;
+      background: #f8fafc;
+      color: #0f172a;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
+    }
+
+    .info-text {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: rgba(248, 250, 252, 0.8);
+    }
+
+    @media (max-width: 640px) {
+      .glass-card {
+        padding: 2.5rem 1.75rem;
+      }
+
+      .title {
+        font-size: 1.75rem;
+      }
+
+      .icon-circle {
+        width: 36px;
+        height: 36px;
+        right: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="glass-card">
+      <div class="title">LOGIN</div>
+      <form autocomplete="off">
+        <div class="input-group" style="margin-bottom: 1rem;">
+          <input class="glass-input" type="text" name="username" placeholder="Username" />
+          <div class="icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="presentation">
+              <path d="M32 34c7.732 0 14-6.268 14-14S39.732 6 32 6s-14 6.268-14 14 6.268 14 14 14zm-18 7.333C7.861 44.333 4 50.773 4 58h56c0-7.227-3.861-13.667-10-16.667C42.57 38 37.38 36 32 36c-5.38 0-10.57 2-14 5.333z" />
+            </svg>
+          </div>
+        </div>
+        <div class="input-group" style="margin-bottom: 1.5rem;">
+          <input class="glass-input" type="password" name="password" placeholder="Password" />
+          <div class="icon-circle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M17 8h-1V6a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2zm-7-2a2 2 0 0 1 4 0v2h-4V6zm7 12H7v-8h10v8z" />
+            </svg>
+          </div>
+        </div>
+        <button type="button" class="btn-login">Entrar</button>
+        <div class="info-text">Acesse a classificação fiscal com segurança.</div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

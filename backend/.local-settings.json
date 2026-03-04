@@ -1,0 +1,10 @@
+{
+  "1": {
+    "companyName": "Pyramid Diamantados",
+    "notificationEmail": "ti@pyramiddiamantados.com.br",
+    "defaultWorkflow": "automatico",
+    "aiAutoClassify": true,
+    "requireApproval": true,
+    "portalIntegration": true
+  }
+}
