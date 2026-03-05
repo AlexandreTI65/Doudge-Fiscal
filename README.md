@@ -127,5 +127,11 @@ Pronto para extensão futura para integração real com certificado digital.
 - Controle de perfil (admin/analista)
 - Fallback local: dados salvos em arquivos, apenas para testes/desenvolvimento.
 
+## Deploy no Render
+- Serviço web: aponte para o branch `main`, diretório raiz `backend`, build `npm install` e start `npm start` (o Dockerfile já usa Node 20).
+- Adicione um Postgres gerenciado ao mesmo projeto e defina `DATABASE_URL` (via "Adicionar a partir de .env") com a string que o Render fornece.
+- Inclua as demais variáveis de `[backend/.env.example](backend/.env.example#L1-L14)` (OPENAI key, JWT_SECRET, IMPORT_NCM, INTEGRATION_MODE, FRONTEND_URL, SMTP_*) para que o backend conecte à base e aos serviços externos.
+- Após salvar, o Render executa o build/start automaticamente e expõe o endpoint em `https://<seu-servico>.onrender.com/health`.
+
 ## Contato
 Dúvidas ou sugestões: [Seu email ou contato]
