@@ -217,6 +217,10 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true });
 });
 
+app.get('/', (_req, res) => {
+  res.send('<h1>Classificação Fiscal API</h1><p>Use /health para verificar o status e consulte o frontend para a UI.</p>');
+});
+
 app.post('/auth/register', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
