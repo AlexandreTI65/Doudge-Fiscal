@@ -128,10 +128,11 @@ Pronto para extensão futura para integração real com certificado digital.
 - Fallback local: dados salvos em arquivos, apenas para testes/desenvolvimento.
 
 ## Deploy no Render
-- Serviço web: aponte para o branch `main`, diretório raiz `backend`, build `npm install` e start `npm start` (o Dockerfile já usa Node 20).
-- Adicione um Postgres gerenciado ao mesmo projeto e defina `DATABASE_URL` (via "Adicionar a partir de .env") com a string que o Render fornece.
-- Inclua as demais variáveis de `[backend/.env.example](backend/.env.example#L1-L14)` (OPENAI key, JWT_SECRET, IMPORT_NCM, INTEGRATION_MODE, FRONTEND_URL, SMTP_*) para que o backend conecte à base e aos serviços externos.
-- Após salvar, o Render executa o build/start automaticamente e expõe o endpoint em `https://<seu-servico>.onrender.com/health`.
+- Backend: crie um serviço web apontando para o branch `main`, diretório raiz `backend`, build `npm install` e start `npm start` (o Dockerfile já usa Node 20).
+- Frontend: crie um segundo serviço apontando para o mesmo repo, diretório raiz `frontend`, build `npm install && npm run build` e start `npx serve dist --listen 3000` ou `npm run preview` se preferir.
+- Configure um Postgres gerenciado no projeto e insira a URI em `DATABASE_URL` (botão "Adicionar a partir de .env").
+- Copie as variáveis de `[backend/.env.example](backend/.env.example#L1-L14)` (OPENAI, JWT_SECRET, IMPORT_NCM, INTEGRATION_MODE, FRONTEND_URL, SMTP_*) para o serviço backend e configure `VITE_API_TARGET` no serviço frontend apontando para a URL do backend.
+- Com tudo isso, o backend fica em `https://<seu-servico-backend>.onrender.com` e o frontend em `https://<seu-servico-frontend>.onrender.com`, fazendo o app completo funcionar.
 
 ## Contato
 Dúvidas ou sugestões: [Seu email ou contato]
