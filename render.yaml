@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: site-estrategico
+    env: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
