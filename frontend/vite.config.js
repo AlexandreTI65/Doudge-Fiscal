@@ -13,5 +13,11 @@ export default defineConfig({
         rewrite: path => path.replace(/^\/api/, '')
       }
     }
+  },
+  preview: {
+    host: true,
+    allowedHosts: [
+      'doudge-fiscal-2.onrender.com'
+    ]
   }
 });
